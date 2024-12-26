@@ -1,0 +1,182 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Body background and font */
+body {
+  background-color: #2d3436;
+  font-family: "Urbanist", sans-serif;
+}
+
+/* Container to center the Todo App */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.todo-app {
+  background: linear-gradient(145deg, rgba(0, 153, 204, 0.7), rgba(0, 204, 255, 0.6));
+  border-radius: 15px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Title styling */
+.todo-app h1 {
+  font-size: 2rem;
+  color: #f5f7f8;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f5f7f8;
+  border-radius: 30px;
+  padding: 15px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+form:hover {
+  transform: scale(1.05);
+}
+
+input {
+  flex: 2;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 2px solid #4a4c4d;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #00bcd4;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  background-color: #00bcd4;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
+
+/* Error message styling */
+p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  background-color: #444;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  max-height: 300px;  /* Limit height of the task list */
+  overflow-y: auto;    /* Enable scrolling if list overflows */
+}
+
+/* Task List items */
+ul li {
+  background-color: #555;
+  margin-bottom: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+ul li:hover {
+  background-color: #666;
+  transform: translateY(-5px);
+}
+
+ul li.checked {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+ul li .icon-style {
+  color: #ff4d4d;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+ul li .icon-style:hover {
+  color: #ff1a1a;
+}
+
+/* Custom scrollbar styles */
+ul::-webkit-scrollbar {
+  width: 8px;  /* Width of the scrollbar */
+}
+
+ul::-webkit-scrollbar-track {
+  background-color: #333; /* Darker background for the track */
+  border-radius: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: #e6f0f1;  /* Color of the scrollbar thumb */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background-color: #0097a7;  /* Thumb color on hover */
+}
+
+ul::-webkit-scrollbar-corner {
+  background-color: transparent; /* For corners where both vertical and horizontal scrollbars meet */
+}
+
+/* Task List responsiveness */
+@media (max-width: 600px) {
+  .todo-app {
+    padding: 1.5rem;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  ul li {
+    font-size: 0.9rem;
+  }
+}

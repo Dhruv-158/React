@@ -1,62 +1,31 @@
-import { useState } from 'react'
-import './index.css'
+/* eslint-disable no-unused-vars */
+import { Input } from 'postcss'
+import React, { useState } from 'react'
 
 function App() {
-  const [color, setColor] = useState('blue')
+
+  const [input, setinput] = useState('')
+  const [task, settask] = useState([])
+
+  const addTask = () => {
+    settask([...task, { text: input, completed: false }])
+    console.log(input)
+    setinput('')
+  }
+
+  const [counter, Setcounter] = useState(1)
 
   return (
-    <div
-      className='w-full h-screen duration-200'
-      style={{ backgroundColor: color }}
-    >
-      <div className="flex flex-wrap justify-center items-center h-full">
-        <button
-          className="px-4 py-2 m-2 text-white bg-red-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('red')}
-        >
-          Red
-        </button>
-        <button
-          className="px-4 py-2 m-2 text-white bg-green-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('green')}
-        >
-          Green
-        </button>
-        <button
-          className="px-4 py-2 m-2 text-white bg-blue-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('blue')}
-        >
-          Blue
-        </button>
-        <button
-          className="px-4 py-2 m-2 text-white bg-orange-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('orange')}
-        >
-          orange
-        </button>
-        <button
-          className="px-4 py-2 m-2 text-black bg-White-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('White')}
-        >
-          White
-        </button>
-
-        <button
-          className="px-4 py-2 m-2 text-black bg-pink-500 rounded border-solid border-2 border-black"
-          onClick={() => setColor('Pink')}
-        >
-              Pink
-        </button>
-        <button
-          className="px-4 py-2 m-2 text-white bg-black-500 rounded bg-black border-solid border-2 border-black"
-          onClick={() => setColor('black')}
-        >
-              Black
-        </button>
+    <>
+      <div className='w-full h-screen bg-slate-500 grid place-items-center '>
+        <div className='w-1/2 h-auto grid place-items-center'>
+          <div className='w-full border border-solid border-black overflow-auto rounded-lg flex'>
+            <input className='focus:outline-none focus:ring-0 px-4 py-2' type='text' value={input} onChange={(e) => setinput(e.target.value)} /><button className='w-1/3 bg-blue-600' onClick={addTask}>Add</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
 export default App
-
